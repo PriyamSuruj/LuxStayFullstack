@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="165" height="35" viewBox="0 0 165 35" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M 6.701 10.861 C 6 12.141 6 13.686 6 16.775 L 6 18.829 C 6 24.095 6 26.728 7.582 28.364 C 9.163 30 11.709 30 16.8 30 L 22.2 30 C 27.291 30 29.837 30 31.418 28.364 C 33 26.728 33 24.095 33 18.829 L 33 16.775 C 33 13.686 33 12.141 32.299 10.861 C 31.598 9.58 30.318 8.785 27.757 7.196 L 25.057 5.52 C 22.349 3.84 20.996 3 19.5 3 C 18.004 3 16.651 3.84 13.943 5.52 L 11.243 7.196 C 8.682 8.785 7.402 9.58 6.701 10.861 Z M 16.053 21.087 C 15.604 20.754 14.97 20.848 14.637 21.297 C 14.304 21.746 14.398 22.38 14.847 22.713 C 16.16 23.686 17.765 24.262 19.5 24.262 C 21.235 24.262 22.84 23.686 24.153 22.713 C 24.602 22.38 24.696 21.746 24.363 21.297 C 24.031 20.848 23.396 20.754 22.947 21.087 C 21.964 21.815 20.777 22.237 19.5 22.237 C 18.223 22.237 17.036 21.815 16.053 21.087 Z" fill="white" id="object-1"/>
+  <text style="fill: rgb(255, 255, 255); font-family: Alata; font-size: 28px; letter-spacing: 0.4px; stroke-width: 0px; word-spacing: 1.1px; white-space: pre;" transform="matrix(1.108688, 0, 0, 1.054918, -1.929546, -3.802774)" id="object-0" x="39.623" y="29.75">LuxStay</text>
+  <defs>
+    <style bx:fonts="Alata">@import url(https://fonts.googleapis.com/css2?family=Alata%3Aital%2Cwght%400%2C400&amp;display=swap);</style>
+    <bx:export>
+      <bx:file format="svg"/>
+      <bx:file format="svg" href="#object-0" path="Untitled 2.svg"/>
+      <bx:file format="svg" href="#object-1" path="Untitled 3.svg"/>
+    </bx:export>
+  </defs>
+</svg>
