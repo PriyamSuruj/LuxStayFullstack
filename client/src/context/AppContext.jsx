@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { useAuth, useUser } from "@clerk/clerk-react";
 import { toast } from 'react-hot-toast'
-import { facilityIcons } from "../assets/assets";
+import { assets, facilityIcons } from "../assets/assets";
 
 axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
 
@@ -19,7 +19,22 @@ export const AppProvider = ({ children }) => {
 
     const [isOwner, setIsOwner] = useState(false);
     const [showHotelReg, setShowHotelReg] = useState(false);
+    const [rooms, setRooms] = useState([]);
     const [searchedCities, setSearchedCities] = useState([]); // max 3 recent searched cities
+
+    const fetchRooms = async () => {
+        try {
+            const { data } = await axios.get('/api/rooms')
+            if (data.success) {
+                setRooms(data.rooms)
+            }
+            else {
+                toast.error(data.message)
+            }
+        } catch (error) {
+            toast.error(error.message)
+        }
+    }
 
     const fetchUser = async () => {
         try {
@@ -45,6 +60,10 @@ export const AppProvider = ({ children }) => {
         }
     }, [user]);
 
+    useEffect(() => {
+        fetchRooms();
+    }, []);
+
     const value = {
         currency, navigate,
         user, getToken,
@@ -52,7 +71,8 @@ export const AppProvider = ({ children }) => {
         axios,
         showHotelReg, setShowHotelReg,
         facilityIcons,
-        searchedCities, setSearchedCities
+        rooms, setRooms,
+        
     }
     
     return (
