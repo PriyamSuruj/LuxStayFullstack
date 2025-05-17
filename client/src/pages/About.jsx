@@ -13,14 +13,14 @@ const About = () => {
 
       <div className="grid md:grid-cols-2 gap-8 mt-10">
         <div>
-          <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
-          <p className="text-gray-600">
+          <h2 className="text-2xl font-semibold text-center mb-4">Our Mission</h2>
+          <p className="text-gray-600 text-center">
             At LuxStay, our mission is to connect travelers with unforgettable hospitality experiences. We work with top-rated hotels and provide a seamless booking experience with exclusive deals and personalized recommendations.
           </p>
         </div>
-        <div>
-          <h2 className="text-2xl font-semibold mb-4">Why Choose Us</h2>
-          <ul className="list-disc list-inside text-gray-600">
+        <div className="text-center">
+            <h2 className="text-2xl font-semibold mb-4">Why Choose Us</h2>
+            <ul className="list-disc list-inside inline-block text-left text-gray-600">
             <li>Curated luxury hotel listings</li>
             <li>Trusted reviews and ratings</li>
             <li>24/7 customer support</li>
