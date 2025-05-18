@@ -76,7 +76,7 @@ export const assets = {
 
 export const cities = [
     "Guwahati",
-    "Nogaon",
+    "Nagaon",
     "Golaghat",
     "Tezpur",
 ];
