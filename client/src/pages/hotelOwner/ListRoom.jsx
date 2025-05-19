@@ -109,7 +109,7 @@ const ListRoom = () => {
                 </label>
                 {/* Delete Button */}
                   <button
-                    onClick={() => openDeleteModal(item._id)}
+                    onClick={() => openDeleteModal(item)}
                     className='text-red-500 hover:text-red-700 text-xs rounded ml-2'
                   >
                     Delete
