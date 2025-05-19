@@ -27,6 +27,7 @@ export const createRoom = async (req, res) => {
       pricePerNight: +pricePerNight,
       amenities: JSON.parse(amenities),
       images,
+      owner: req.user._id,
     });
 
     res.json({ success: true, message: "Room created successfully" });
@@ -79,5 +80,31 @@ export const toggleRoomAvailability = async (req, res) => {
     res.json({ success: true, message: "Room availability Updated" });
   } catch (error) {
     res.json({ success: false, message: error.message });
+  }
+};
+
+// DELETE /api/rooms/:id
+export const deleteRoom = async (req, res) => {
+  try {
+    const roomId = req.params.id;
+
+    // Find the room
+    const room = await Room.findById(roomId);
+    if (!room) {
+      return res.status(404).json({ success: false, message: "Room not found" });
+    }
+
+    // Only the owner can delete the room
+    if (!room.owner || room.owner.toString() !== req.user._id.toString()) {
+      return res.json({ success: false, message: "Unauthorized to delete this room" });
+    }
+
+    // Delete room
+    await Room.findByIdAndDelete(roomId);
+
+    res.json({ success: true, message: "Room deleted successfully" });
+  } catch (error) {
+    console.error("❌ Delete Room Error:", error);
+    res.status(500).json({ success: false, message: "Server error while deleting room" });
   }
 };
