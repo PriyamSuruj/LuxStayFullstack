@@ -8,6 +8,19 @@ const ListRoom = () => {
     const [rooms, setRooms] = useState([])
     const { axios, getToken, user, currency} = useAppContext()
 
+    const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
+    const [roomToDelete, setRoomToDelete] = useState(null);
+
+    const openDeleteModal = (room) => {
+    setRoomToDelete(room);
+    setDeleteModalOpen(true);
+    };
+
+    const closeDeleteModal = () => {
+    setRoomToDelete(null);
+    setDeleteModalOpen(false);
+    };
+
     // Fetch Rooms of the Hotel Owner
     const fetchRooms = async () => {
         try {
@@ -36,24 +49,21 @@ const ListRoom = () => {
     }
 
     //  Delete Room Function
-  const deleteRoom = async (roomId) => {
-    const confirmed = window.confirm('Are you sure you want to delete this room?')
-    if (!confirmed) return
-
+    const deleteRoom = async (roomId) => {
     try {
-      const { data } = await axios.delete(`/api/rooms/${roomId}`, {
+        const { data } = await axios.delete(`/api/rooms/${roomId}`, {
         headers: { Authorization: `Bearer ${await getToken()}` }
-      })
-      if (data.success) {
+        })
+        if (data.success) {
         toast.success(data.message)
         fetchRooms()
-      } else {
+        } else {
         toast.error(data.message)
-      }
+        }
     } catch (error) {
-      toast.error(error.message)
+        toast.error(error.message)
     }
-  }
+    }
 
     // Fetch Rooms when user is logged in
     useEffect(() => {
@@ -69,7 +79,7 @@ const ListRoom = () => {
       <p className='text-gray-500 mt-8'>All Rooms</p>
 
       <div className='w-full max-w-3xl text-left border border-gray-300 rounded-lg max-h-80 overflow-y-scroll mt-3'>
-        <table className='w-full'>
+        <table className='w-full table-auto'>
         <thead className='bg-gray-50'>
             <tr>
                 <th className='py-3 px-4 text-gray-800 font-medium'>Name</th>
@@ -99,7 +109,7 @@ const ListRoom = () => {
                 </label>
                 {/* Delete Button */}
                   <button
-                    onClick={() => deleteRoom(item._id)}
+                    onClick={() => openDeleteModal(item._id)}
                     className='text-red-500 hover:text-red-700 text-xs rounded ml-2'
                   >
                     Delete
@@ -111,6 +121,32 @@ const ListRoom = () => {
         </tbody>
         </table>
       </div>
+        {isDeleteModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-transparent bg-opacity-40 z-50">
+            <div className="bg-white bg-opacity-2 rounded-md shadow-xl max-w-xs w-full p-4 mx-4">
+            <h2 className="text-md font-semibold mb-3 text-center">Confirm Delete</h2>
+            <p className="mb-5 text-center text-sm">
+                Are you sure you want to delete the room <strong>{roomToDelete?.roomType}</strong>?
+            </p>
+            <div className="flex justify-center gap-4">
+                <button
+                onClick={closeDeleteModal}
+                className="px-4 py-1 rounded border border-gray-300 hover:bg-blue-100 text-sm" >
+                Cancel
+                </button>
+                <button
+                onClick={async () => {
+                    await deleteRoom(roomToDelete._id);
+                    closeDeleteModal();
+                }}
+                className="px-4 py-1 rounded bg-red-600 text-white hover:bg-red-700 text-sm"
+                >
+                Delete
+                </button>
+            </div>
+            </div>
+        </div>
+        )}
     </div>
   )
 }

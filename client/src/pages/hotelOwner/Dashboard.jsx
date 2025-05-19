@@ -59,7 +59,7 @@ const Dashboard = () => {
 
         <div className='w-full max-w-3xl text-left border border-gray-300 rounded-lg max-h-80 overflow-y-scroll'>
 
-        <table className='w-full'>
+        <table className='w-full table-auto'>
         <thead className='bg-gray-50'>
             <tr>
                 <th className='py-3 px-4 text-gray-800 font-medium'>User Name and Email</th>
@@ -77,7 +77,7 @@ const Dashboard = () => {
                 </td>
 
                 <td className='py-3 px-4 text-gray-700 border-t border-gray-300 max-sm:hidden'>
-                    {item.room?.roomType || 'N/A'}
+                    {item.room?.roomType || 'Not Available'}
                 </td>
 
                 <td className='py-3 px-4 text-gray-700 border-t border-gray-300 text-center'>
