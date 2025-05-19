@@ -15,6 +15,7 @@ import { Toaster } from 'react-hot-toast'
 import { useAppContext } from './context/AppContext';
 import Loader from './components/Loader';
 import About from './pages/About';
+import Experience from './pages/Experience';
 
 const App = () => {
 
@@ -32,6 +33,7 @@ const App = () => {
           <Route path='/rooms' element={<AllRooms/>} />
           <Route path="/about" element={<About />} />
           <Route path='/rooms/:id' element={<RoomDetails/>} />
+          <Route path="/experience" element={<Experience />} />
           <Route path='/my-bookings' element={<MyBookings/>} />
           < Route path="/loader/:nextUrl" element={<Loader />} />
           <Route path='/owner' element={<Layout/>}>
