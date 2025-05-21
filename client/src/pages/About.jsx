@@ -3,7 +3,7 @@ import Title from '../components/Title';
 
 const About = () => {
   return (
-    <div className="max-w-4xl mx-auto mt-26 px-4 py-12 bg-[rgba(255, 255, 255, 0.81)] p-12 rounded-xl shadow-md">
+    <div className="max-w-4xl mx-auto mt-26 flex flex-col items-center px-6 md:px-16 lg:px-24 bg-slate-50 pt-16 pb-22 rounded-xl shadow-md ">
       <Title title="About LuxStay" subTitle="LuxStay is your premium partner for luxurious and comfortable hotel stays. Whether you're traveling for business or leisure, we help you discover the perfect stay tailored to your needs."/>
       <Title subTitle=""/>
       <h1 className="text-4xl font-bold text-center mb-6"></h1>

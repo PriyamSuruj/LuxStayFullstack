@@ -5,10 +5,10 @@ import Title from '../components/Title';
 
 const Experience = () => {
   return (
-    <div className="bg-white text-gray-800">
+    <div className=" px-6 bg-slate-50 pt-20 pb-30">
 
       {/* Testimonial Section */}
-      <section className='mt-8'>
+      <section>
         <Testimonial />
       </section>
 
