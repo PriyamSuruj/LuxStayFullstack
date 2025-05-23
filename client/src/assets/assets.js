@@ -81,6 +81,12 @@ export const cities = [
     "Nagaon",
     "Golaghat",
     "Tezpur",
+    "Jorhat",
+    "Dibrugarh",
+    "Silchar",
+    "Tinsukia",
+    "Sivsagar",
+    "Dhubri",
 ];
 
 // Exclusive Offers Dummy Data
